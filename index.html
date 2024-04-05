@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <title>BLAKE2s Generator</title>
+    <link rel="stylesheet" href="styleme.css">
+
+    <link rel="stylesheet" href="extra.css">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.3.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.3.1/core.js"></script>
+    <script src="https://kit.fontawesome.com/b0d93850a5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="banner">
+
+</div>
+        <h1><span></span></h1>
+        <p>please wait a Sec...</p>
+
+        <div class="container">
+              <h1>BLAKE2s GENERATOR</h1>
+
+              <div id="blake2s">
+                <input type="text" id="blake2s_input" placeholder="Enter any Word...." />
+                <button py-click="blake2s_converter">Generate Blake2s</button> 
+                
+                <textarea class="output" id="blake2s_output" cols="40" rows="3" placeholder="Blake2s Shown here..."></textarea>
+                <button onclick="myFunction1()" id="copy1">Copy Blake2s Value</button>
+                 
+              </div> 
+        </div>
+
+        <script type="py" src="./main.py"></script>
+                      
+</body>
+</html>
+
+
+
+

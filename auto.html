@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLAKE2s Hash Generator</title>
+    <script>
+        function generateBLAKE2s() {
+            var input = document.getElementById("inputText").value;
+            var hash = blake2s(input);
+            document.getElementById("outputHash").value = hash;
+        }
+
+        // BLAKE2s implementation
+        function blake2s(input) {
+            // BLAKE2s constants
+            var iv = new Uint32Array([
+                0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a,
+                0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19
+            ]);
+            var sigma = new Uint8Array([
+                0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
+            ]);
+
+            // BLAKE2s parameters
+            var blockSize = 64; // 64 bytes
+            var digestSize = 32; // 32 bytes
+
+            // Padding
+            var paddedInput = pad(input);
+
+            // Compression function
+            function compress(message, counter, flag) {
+                // TODO: Implement BLAKE2s compression function
+                // This is just a placeholder
+                return "fakehash";
+            }
+
+            // Finalization
+            function finalize(hash) {
+                // TODO: Implement BLAKE2s finalization
+                // This is just a placeholder
+                return "fakehash";
+            }
+
+            // Pad input message
+            function pad(input) {
+                // TODO: Implement BLAKE2s padding
+                // This is just a placeholder
+                return input;
+            }
+
+            // Initialize hash state
+            var h = new Uint32Array(iv);
+
+            // Compress each block
+            for (var i = 0; i < paddedInput.length; i += blockSize) {
+                var block = paddedInput.slice(i, i + blockSize);
+                h = compress(block, i / blockSize, i + blockSize < paddedInput.length ? 0 : 1);
+            }
+
+            // Finalize hash
+            return finalize(h);
+        }
+    </script>
+</head>
+<body>
+    <h1>BLAKE2s Hash Generator</h1>
+    <label for="inputText">Input Text:</label><br>
+    <input type="text" id="inputText" name="inputText"><br>
+    <button onclick="generateBLAKE2s()">Generate BLAKE2s Hash</button><br>
+    <label for="outputHash">Output Hash:</label><br>
+    <textarea id="outputHash" rows="4" cols="50"></textarea>
+</body>
+</html>
